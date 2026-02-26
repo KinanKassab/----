@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مولد Flexbox | منصة تعلم الويب</title>
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="site-header">
+        <h1>تعلم Flexbox: justify-content و align-items</h1>
+        <p>صمم، عاين، تعلم — بطريقة تفاعلية</p>
+        <a href="../index.html" class="back-link">← العودة للرئيسية</a>
+    </header>
+
+    <div class="page-wrapper">
+        <!-- منطقة المعاينة -->
+        <div class="preview-wrapper">
+            <div class="preview-container" id="flexContainer"></div>
+        </div>
+
+        <!-- لوحة التحكم -->
+        <div class="dashboard">
+            <div class="control-panel">
+                <h3>إعدادات الحاوية (Flexbox)</h3>
+                <div class="input-group">
+                    <label>التوزيع الأفقي (justify-content):</label>
+                    <select id="justifyCtrl" onchange="generateAll()">
+                        <option value="center">center (المنتصف)</option>
+                        <option value="flex-start">flex-start (البداية)</option>
+                        <option value="flex-end">flex-end (النهاية)</option>
+                        <option value="space-between">space-between (توزيع بيني)</option>
+                        <option value="space-around">space-around (مساحات متساوية)</option>
+                        <option value="space-evenly">space-evenly (توزيع متطابق)</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>المحاذاة العمودية (align-items):</label>
+                    <select id="alignCtrl" onchange="generateAll()">
+                        <option value="center">center (المنتصف)</option>
+                        <option value="flex-start">flex-start (الأعلى)</option>
+                        <option value="flex-end">flex-end (الأسفل)</option>
+                        <option value="stretch">stretch (تمدد)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="control-panel">
+                <h3>إعدادات العناصر (Items)</h3>
+                <div class="input-group">
+                    <label>نوع العنصر:</label>
+                    <select id="tagCtrl" onchange="handleTagChange()">
+                        <option value="p">فقرة نصية &lt;p&gt;</option>
+                        <option value="h2">عنوان &lt;h2&gt;</option>
+                        <option value="a">رابط &lt;a&gt;</option>
+                        <option value="button">زر &lt;button&gt;</option>
+                        <option value="img">صورة &lt;img&gt;</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label id="contentLabel">المحتوى النصي:</label>
+                    <input type="text" id="contentCtrl" value="عنصر" oninput="generateAll()">
+                </div>
+                <div class="input-group">
+                    <label>عدد العناصر:</label>
+                    <input type="number" id="countCtrl" value="2" min="1" max="10" oninput="generateAll()">
+                </div>
+            </div>
+        </div>
+
+        <!-- منطقة الأكواد -->
+        <div class="code-section">
+            <div class="code-block">
+                <div class="code-header">
+                    <span>HTML</span>
+                    <button class="copy-btn" onclick="copyToClipboard('htmlOutput')">نسخ الكود</button>
+                </div>
+                <pre id="htmlOutput"></pre>
+            </div>
+            <div class="code-block">
+                <div class="code-header">
+                    <span>CSS</span>
+                    <button class="copy-btn" onclick="copyToClipboard('cssOutput')">نسخ الكود</button>
+                </div>
+                <pre id="cssOutput"></pre>
+            </div>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <p>منصة تعلم الويب &copy; 2026</p>
+    </footer>
+
+    <div class="toast" id="toastMessage">تم نسخ الكود بنجاح!</div>
+
+    <script src="script.js"></script>
+</body>
+</html>

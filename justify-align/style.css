@@ -1,0 +1,239 @@
+/* مولد Flexbox - تصميم موحد مع الصفحة الرئيسية */
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.page-wrapper {
+    flex: 1;
+    width: 92%;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: var(--space-md);
+}
+
+.preview-wrapper {
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    padding: var(--space-md);
+    box-shadow: var(--shadow-md);
+    margin-bottom: var(--space-lg);
+}
+
+.preview-container {
+    width: 100%;
+    min-height: 220px;
+    background: #f1f5f9;
+    border: 2px dashed var(--border);
+    border-radius: var(--radius-md);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-md);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.preview-item {
+    background: var(--primary);
+    color: white;
+    padding: 14px 22px;
+    min-height: 44px;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+    max-width: 100%;
+    word-wrap: break-word;
+}
+
+img.preview-item {
+    padding: 0;
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    background: transparent;
+}
+
+a.preview-item {
+    background: var(--success);
+}
+
+a.preview-item:hover {
+    opacity: 0.9;
+}
+
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: var(--space-md);
+    margin-bottom: var(--space-lg);
+}
+
+.control-panel {
+    background: var(--bg-card);
+    padding: var(--space-md);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+}
+
+.control-panel h3 {
+    margin-bottom: var(--space-sm);
+    font-size: 1.05rem;
+    color: var(--primary);
+    border-bottom: 2px solid var(--border);
+    padding-bottom: var(--space-sm);
+}
+
+.input-group {
+    margin-bottom: var(--space-sm);
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.input-group select,
+.input-group input {
+    width: 100%;
+    padding: 12px 14px;
+    min-height: 44px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: 0.95rem;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.input-group select:focus,
+.input-group input:focus {
+    border-color: var(--primary);
+}
+
+.code-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-md);
+}
+
+.code-block {
+    background: var(--code-bg);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+}
+
+.code-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    background: var(--code-header);
+    padding: var(--space-sm) var(--space-md);
+    color: white;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.copy-btn {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    min-height: 40px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+
+.copy-btn:hover {
+    background: var(--primary-hover);
+}
+
+pre {
+    padding: var(--space-md);
+    color: var(--code-text);
+    font-family: Consolas, Monaco, monospace;
+    font-size: 0.88rem;
+    overflow-x: auto;
+    direction: ltr;
+    text-align: left;
+    margin: 0;
+    line-height: 1.5;
+    min-height: 180px;
+}
+
+.toast {
+    position: fixed;
+    bottom: var(--space-lg);
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--success);
+    color: white;
+    padding: 14px 28px;
+    border-radius: 30px;
+    font-weight: 600;
+    box-shadow: var(--shadow-lg);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.toast.show {
+    opacity: 1;
+    visibility: visible;
+    bottom: 50px;
+}
+
+/* ========== استجابة الموبايل ========== */
+@media (max-width: 768px) {
+    .page-wrapper {
+        padding: var(--space-sm);
+    }
+
+    .preview-container {
+        min-height: 180px;
+    }
+
+    .dashboard {
+        grid-template-columns: 1fr;
+    }
+
+    .code-section {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .preview-item {
+        padding: 10px 14px;
+        font-size: 0.9rem;
+    }
+
+    img.preview-item {
+        width: 50px;
+        height: 50px;
+    }
+
+    .toast.show {
+        bottom: 80px;
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
+        width: 90%;
+        text-align: center;
+    }
+}

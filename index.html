@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة تعلم الويب | ويب</title>
+    <link rel="stylesheet" href="css/global.css">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            flex: 1;
+            max-width: 1000px;
+            width: 92%;
+            margin: var(--space-xl, 2rem) auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-lg, 1.5rem);
+        }
+
+        .lesson-card {
+            background: var(--bg-card, #fff);
+            border-radius: var(--radius-lg, 12px);
+            padding: var(--space-lg, 1.5rem);
+            box-shadow: var(--shadow-sm, 0 2px 8px rgba(0,0,0,0.06));
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 4px solid var(--accent, #e74c3c);
+        }
+
+        .lesson-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg, 0 12px 32px rgba(0,0,0,0.1));
+        }
+
+        .lesson-card h2 {
+            color: var(--primary, #2c3e50);
+            margin-bottom: var(--space-sm, 1rem);
+            font-size: 1.35rem;
+        }
+
+        .lesson-card ul {
+            margin: var(--space-sm, 1rem) 0;
+            padding-right: var(--space-md, 1.5rem);
+            color: var(--text-muted, #666);
+            line-height: 1.8;
+        }
+
+        .lesson-card ul li {
+            margin-bottom: 6px;
+        }
+
+        .lesson-card a {
+            display: inline-block;
+            text-decoration: none;
+            background: var(--primary, #2c3e50);
+            color: white;
+            padding: 12px 24px;
+            border-radius: var(--radius-sm, 6px);
+            font-weight: 600;
+            margin-top: var(--space-sm, 1rem);
+            transition: background 0.3s;
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .lesson-card a:hover {
+            background: var(--accent, #e74c3c);
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                grid-template-columns: 1fr;
+                gap: var(--space-md);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <h1>منصة تعلم الويب</h1>
+        <p>دليلك الشامل لإتقان تصميم المواقع وبناء أفكارك برمجياً</p>
+    </header>
+
+    <div class="container">
+        <div class="lesson-card">
+            <h2>المختبر التفاعلي للعناوين والفقرات</h2>
+            <ul>
+                <li>إضافة عناصر H1–H6 والفقرات</li>
+                <li>تعديل ألوان النص والخلفية</li>
+                <li>محاذاة النص (يمين، وسط، يسار)</li>
+                <li>معاينة مباشرة وتصدير HTML و CSS</li>
+            </ul>
+            <a href="h1-p,html-css/index.html">تصفح الدروس</a>
+        </div>
+
+        <div class="lesson-card">
+            <h2>مولد Flexbox (justify & align)</h2>
+            <ul>
+                <li>فهم justify-content و align-items</li>
+                <li>تجربة أنواع التوزيع المختلفة</li>
+                <li>إضافة عناصر نصية وروابط وأزرار</li>
+                <li>نسخ أكواد HTML و CSS جاهزة</li>
+            </ul>
+            <a href="justify-align/index.html">تصفح الدروس</a>
+        </div>
+
+        <div class="lesson-card">
+            <h2>Margin, Padding, Border و Border-radius</h2>
+            <ul>
+                <li>تجربة المسافات الخارجية (margin) من كل جهة</li>
+                <li>ضبط المسافات الداخلية (padding)</li>
+                <li>تعديل الإطار: السُمك، النوع، اللون</li>
+                <li>تقويس الزوايا (border-radius) وتصدير الكود</li>
+            </ul>
+            <a href="margin-border-padding/index.html">تصفح الدروس</a>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <p>جميع الحقوق محفوظة لموقع منصة تعلم الويب &copy; 2026</p>
+    </footer>
+
+</body>
+</html>

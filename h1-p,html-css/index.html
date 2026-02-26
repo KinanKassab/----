@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المختبر التفاعلي | منصة تعلم الويب</title>
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="site-header">
+        <h1>منصة بناء واجهات الويب</h1>
+        <p>المختبر التفاعلي المتقدم — العناوين والفقرات</p>
+        <a href="../index.html" class="back-link">← العودة للرئيسية</a>
+    </header>
+
+    <div class="app-container">
+        <aside class="control-panel">
+            <div class="panel-section">
+                <h3>التنسيقات العامة (CSS)</h3>
+                <div class="controls-grid">
+                    <div class="input-group">
+                        <label>لون النص</label>
+                        <input type="color" id="text-color" value="#333333">
+                    </div>
+                    <div class="input-group">
+                        <label>لون الخلفية</label>
+                        <input type="color" id="bg-color" value="#ffffff">
+                    </div>
+                </div>
+                <div class="input-group" style="margin-top: 15px;">
+                    <label>محاذاة النص</label>
+                    <div class="align-buttons">
+                        <button class="btn active-align" onclick="setAlignment('right', this)">يمين</button>
+                        <button class="btn" onclick="setAlignment('center', this)">وسط</button>
+                        <button class="btn" onclick="setAlignment('left', this)">يسار</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel-section">
+                <h3>إضافة عناصر (HTML)</h3>
+                <div class="add-buttons">
+                    <button class="btn btn-add" onclick="addNewElement('h1')">+ H1</button>
+                    <button class="btn btn-add" onclick="addNewElement('h2')">+ H2</button>
+                    <button class="btn btn-add" onclick="addNewElement('h3')">+ H3</button>
+                    <button class="btn btn-add" onclick="addNewElement('h4')">+ H4</button>
+                    <button class="btn btn-add" onclick="addNewElement('h5')">+ H5</button>
+                    <button class="btn btn-add" onclick="addNewElement('h6')">+ H6</button>
+                    <button class="btn btn-add" onclick="addNewElement('p')">+ P</button>
+                </div>
+            </div>
+
+            <div class="panel-section" style="border-bottom: none;">
+                <h3>تعديل النصوص</h3>
+                <div id="elements-manager" class="element-manager"></div>
+            </div>
+        </aside>
+
+        <main class="preview-panel">
+            <h2 class="preview-header">شاشة المعاينة المباشرة</h2>
+            <div id="live-screen" style="text-align: right; color: #333333; background-color: #ffffff;"></div>
+        </main>
+    </div>
+
+    <section class="code-export-section">
+        <div class="code-box">
+            <div class="code-header">
+                <h3>ملف HTML</h3>
+                <button class="copy-btn" onclick="copyCode('html-code', this)">نسخ الكود</button>
+            </div>
+            <pre><code id="html-code"></code></pre>
+        </div>
+        <div class="code-box">
+            <div class="code-header">
+                <h3>ملف CSS</h3>
+                <button class="copy-btn" onclick="copyCode('css-code', this)">نسخ الكود</button>
+            </div>
+            <pre><code id="css-code"></code></pre>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <p>منصة تعلم الويب &copy; 2026</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

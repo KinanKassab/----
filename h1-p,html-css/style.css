@@ -1,0 +1,302 @@
+/* المختبر التفاعلي - تصميم موحد مع الصفحة الرئيسية */
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.app-container {
+    flex: 1;
+    max-width: 1200px;
+    width: 92%;
+    margin: var(--space-md) auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+    padding: 0 var(--space-sm);
+}
+
+.control-panel {
+    flex: 1;
+    min-width: 280px;
+    max-width: 400px;
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    padding: var(--space-md);
+    box-shadow: var(--shadow-md);
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+.panel-section {
+    margin-bottom: var(--space-md);
+    padding-bottom: var(--space-md);
+    border-bottom: 1px solid var(--border-light);
+}
+
+.panel-section h3 {
+    color: var(--primary);
+    font-size: 1.1rem;
+    margin-bottom: var(--space-sm);
+}
+
+.controls-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-sm);
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.input-group label {
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+input[type="color"] {
+    width: 100%;
+    height: 44px;
+    min-height: 44px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    padding: 2px;
+}
+
+.align-buttons, .add-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.btn {
+    padding: 12px 16px;
+    min-height: 44px;
+    background: #f8f9fa;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: 600;
+    transition: all 0.2s;
+    flex: 1;
+    min-width: 70px;
+    text-align: center;
+}
+
+.btn:hover {
+    background: #e9ecef;
+}
+
+.btn.active-align {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+}
+
+.btn-add {
+    background: var(--primary);
+    color: white;
+    border: none;
+}
+
+.btn-add:hover {
+    background: var(--primary-hover);
+}
+
+.element-manager {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.edit-row {
+    display: flex;
+    gap: var(--space-sm);
+    align-items: center;
+    background: #f8f9fa;
+    padding: var(--space-sm);
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-light);
+}
+
+.tag-badge {
+    background: var(--primary);
+    color: white;
+    padding: 6px 12px;
+    border-radius: var(--radius-sm);
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.edit-input {
+    flex: 1;
+    min-width: 0;
+    padding: 10px 12px;
+    min-height: 44px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-family: inherit;
+}
+
+.btn-delete {
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 10px 14px;
+    min-height: 44px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.btn-delete:hover {
+    background: var(--accent-hover);
+}
+
+.preview-panel {
+    flex: 2;
+    min-width: 320px;
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    padding: var(--space-md);
+    box-shadow: var(--shadow-md);
+    display: flex;
+    flex-direction: column;
+}
+
+.preview-header {
+    margin: 0 0 var(--space-sm);
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    border-bottom: 2px solid var(--border-light);
+    padding-bottom: var(--space-sm);
+}
+
+#live-screen {
+    flex: 1;
+    min-height: 200px;
+    padding: var(--space-lg);
+    border: 2px dashed var(--border);
+    border-radius: var(--radius-lg);
+    transition: all 0.3s ease;
+}
+
+#live-screen > * {
+    margin-top: 0;
+}
+
+.code-export-section {
+    max-width: 1200px;
+    width: 92%;
+    margin: 0 auto var(--space-xl);
+    padding: 0 var(--space-sm);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-md);
+}
+
+.code-box {
+    background: var(--code-bg);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+}
+
+.code-header {
+    background: var(--code-header);
+    padding: var(--space-sm) var(--space-md);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+}
+
+.code-header h3 {
+    color: var(--accent);
+    margin: 0;
+    font-size: 1rem;
+}
+
+.copy-btn {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    min-height: 40px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.copy-btn:hover {
+    background: var(--primary-hover);
+}
+
+.copy-btn.success {
+    background: var(--success);
+}
+
+pre {
+    margin: 0;
+    padding: var(--space-md);
+    direction: ltr;
+    text-align: left;
+    overflow-x: auto;
+    min-height: 200px;
+    max-height: 280px;
+}
+
+code {
+    color: var(--code-text);
+    font-family: Consolas, Monaco, monospace;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+/* ========== استجابة الموبايل ========== */
+@media (max-width: 768px) {
+    .app-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .control-panel {
+        max-width: 100%;
+        max-height: none;
+    }
+
+    .preview-panel {
+        min-width: 100%;
+    }
+
+    .code-export-section {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .controls-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .add-buttons .btn {
+        min-width: calc(33.33% - 6px);
+    }
+
+    .edit-row {
+        flex-wrap: wrap;
+    }
+
+    .edit-input {
+        width: 100%;
+    }
+}

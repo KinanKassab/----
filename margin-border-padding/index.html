@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Margin, Padding, Border | منصة تعلم الويب</title>
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="site-header">
+        <h1>تعلم الـ Box Model</h1>
+        <p>جرّب margin و padding و border و border-radius تفاعلياً</p>
+        <a href="../index.html" class="back-link">← العودة للرئيسية</a>
+    </header>
+
+    <div class="app-container">
+        <aside class="control-panel">
+            <div class="panel-section">
+                <h3>المسافات الخارجية (Margin)</h3>
+                <div class="value-mode">
+                    <span>عدد القيم:</span>
+                    <div class="mode-buttons">
+                        <button type="button" class="btn-mode" data-mode="1" data-target="margin">قيمة واحدة</button>
+                        <button type="button" class="btn-mode" data-mode="2" data-target="margin">قيمتان</button>
+                        <button type="button" class="btn-mode active" data-mode="4" data-target="margin">أربع قيم</button>
+                    </div>
+                </div>
+                <div class="controls-grid grid-4 margin-inputs" id="margin-inputs-4">
+                    <div class="input-group"><label>أعلى</label><input type="number" id="margin-top" value="20" min="0" oninput="updatePreview()"></div>
+                    <div class="input-group"><label>يمين</label><input type="number" id="margin-right" value="20" min="0" oninput="updatePreview()"></div>
+                    <div class="input-group"><label>أسفل</label><input type="number" id="margin-bottom" value="20" min="0" oninput="updatePreview()"></div>
+                    <div class="input-group"><label>يسار</label><input type="number" id="margin-left" value="20" min="0" oninput="updatePreview()"></div>
+                </div>
+                <div class="controls-grid grid-2 margin-inputs hidden" id="margin-inputs-2">
+                    <div class="input-group"><label>عمودي (أعلى + أسفل)</label><input type="number" id="margin-vertical" value="20" min="0" oninput="updatePreview()"></div>
+                    <div class="input-group"><label>أفقي (يمين + يسار)</label><input type="number" id="margin-horizontal" value="20" min="0" oninput="updatePreview()"></div>
+                </div>
+                <div class="input-group margin-inputs hidden" id="margin-inputs-1">
+                    <label>جميع الجوانب</label>
+                    <input type="number" id="margin-all" value="20" min="0" oninput="updatePreview()">
+                </div>
+            </div>
+
+            <div class="panel-section">
+                <h3>المسافات الداخلية (Padding)</h3>
+                <div class="value-mode">
+                    <span>عدد القيم:</span>
+                    <div class="mode-buttons">
+                        <button type="button" class="btn-mode active" data-mode="1" data-target="padding">قيمة واحدة</button>
+                        <button type="button" class="btn-mode" data-mode="2" data-target="padding">قيمتان</button>
+                        <button type="button" class="btn-mode" data-mode="4" data-target="padding">أربع قيم</button>
+                    </div>
+                </div>
+                <div class="controls-grid grid-4 padding-inputs hidden" id="padding-inputs-4">
+                    <div class="input-group"><label>أعلى</label><input type="number" id="padding-top" value="24" min="0" oninput="updatePreview()"></div>
+                    <div class="input-group"><label>يمين</label><input type="number" id="padding-right" value="24" min="0" oninput="updatePreview()"></div>
+                    <div class="input-group"><label>أسفل</label><input type="number" id="padding-bottom" value="24" min="0" oninput="updatePreview()"></div>
+                    <div class="input-group"><label>يسار</label><input type="number" id="padding-left" value="24" min="0" oninput="updatePreview()"></div>
+                </div>
+                <div class="controls-grid grid-2 padding-inputs hidden" id="padding-inputs-2">
+                    <div class="input-group"><label>عمودي (أعلى + أسفل)</label><input type="number" id="padding-vertical" value="24" min="0" oninput="updatePreview()"></div>
+                    <div class="input-group"><label>أفقي (يمين + يسار)</label><input type="number" id="padding-horizontal" value="24" min="0" oninput="updatePreview()"></div>
+                </div>
+                <div class="input-group padding-inputs" id="padding-inputs-1">
+                    <label>جميع الجوانب</label>
+                    <input type="number" id="padding-all" value="24" min="0" oninput="updatePreview()">
+                </div>
+            </div>
+
+            <div class="panel-section">
+                <h3>الإطار (Border)</h3>
+                <div class="controls-grid">
+                    <div class="input-group">
+                        <label>السُمك (px)</label>
+                        <input type="number" id="border-width" value="2" min="0" oninput="updatePreview()">
+                    </div>
+                    <div class="input-group">
+                        <label>النوع</label>
+                        <select id="border-style" onchange="updatePreview()">
+                            <option value="none">none</option>
+                            <option value="solid" selected>solid</option>
+                            <option value="dashed">dashed</option>
+                            <option value="dotted">dotted</option>
+                            <option value="double">double</option>
+                            <option value="groove">groove</option>
+                            <option value="ridge">ridge</option>
+                            <option value="inset">inset</option>
+                            <option value="outset">outset</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="input-group" style="margin-top: 12px;">
+                    <label>لون الإطار</label>
+                    <input type="color" id="border-color" value="#2c3e50" oninput="updatePreview()">
+                </div>
+            </div>
+
+            <div class="panel-section">
+                <h3>تقويس الزوايا (Border-radius)</h3>
+                <div class="value-mode">
+                    <span>عدد القيم:</span>
+                    <div class="mode-buttons">
+                        <button type="button" class="btn-mode active" data-mode="1" data-target="radius">قيمة واحدة</button>
+                        <button type="button" class="btn-mode" data-mode="2" data-target="radius">قيمتان</button>
+                        <button type="button" class="btn-mode" data-mode="4" data-target="radius">أربع قيم</button>
+                    </div>
+                </div>
+                <div class="controls-grid grid-4 radius-inputs hidden" id="radius-inputs-4">
+                    <div class="input-group"><label>أعلى-يمين</label><input type="number" id="radius-top-right" value="8" min="0" oninput="updatePreview()"></div>
+                    <div class="input-group"><label>أعلى-يسار</label><input type="number" id="radius-top-left" value="8" min="0" oninput="updatePreview()"></div>
+                    <div class="input-group"><label>أسفل-يمين</label><input type="number" id="radius-bottom-right" value="8" min="0" oninput="updatePreview()"></div>
+                    <div class="input-group"><label>أسفل-يسار</label><input type="number" id="radius-bottom-left" value="8" min="0" oninput="updatePreview()"></div>
+                </div>
+                <div class="controls-grid grid-2 radius-inputs hidden" id="radius-inputs-2">
+                    <div class="input-group"><label>أعلى-يمين + أسفل-يسار</label><input type="number" id="radius-1" value="8" min="0" oninput="updatePreview()"></div>
+                    <div class="input-group"><label>أعلى-يسار + أسفل-يمين</label><input type="number" id="radius-2" value="8" min="0" oninput="updatePreview()"></div>
+                </div>
+                <div class="input-group radius-inputs" id="radius-inputs-1">
+                    <label>جميع الزوايا</label>
+                    <input type="number" id="radius-all" value="8" min="0" oninput="updatePreview()">
+                </div>
+            </div>
+
+            <div class="panel-section">
+                <h3>الألوان</h3>
+                <div class="controls-grid grid-2">
+                    <div class="input-group">
+                        <label>لون الخلفية</label>
+                        <input type="color" id="box-bg-color" value="#2c3e50" oninput="updatePreview()">
+                    </div>
+                    <div class="input-group">
+                        <label>لون النص</label>
+                        <input type="color" id="box-text-color" value="#ffffff" oninput="updatePreview()">
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel-section" style="border-bottom: none;">
+                <h3>المحتوى</h3>
+                <div class="input-group">
+                    <label>نص العنصر</label>
+                    <input type="text" id="box-content" value="جرّب التعديل!" oninput="updatePreview()">
+                </div>
+            </div>
+        </aside>
+
+        <main class="preview-panel">
+            <h2 class="preview-header">المعاينة المباشرة</h2>
+            <div class="preview-stage">
+                <div id="live-box"></div>
+            </div>
+        </main>
+    </div>
+
+    <section class="code-export-section">
+        <div class="code-box">
+            <div class="code-header">
+                <h3>ملف HTML</h3>
+                <button class="copy-btn" onclick="copyCode('html-code', this)">نسخ الكود</button>
+            </div>
+            <pre><code id="html-code"></code></pre>
+        </div>
+        <div class="code-box">
+            <div class="code-header">
+                <h3>ملف CSS</h3>
+                <button class="copy-btn" onclick="copyCode('css-code', this)">نسخ الكود</button>
+            </div>
+            <pre><code id="css-code"></code></pre>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <p>منصة تعلم الويب &copy; 2026</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
